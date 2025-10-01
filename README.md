@@ -3,11 +3,13 @@
 Questo repository contiene un **microprogetto in PySpark** per la lettura, la pulizia e la validazione di dataset relativi ai dipendenti.  
 L’obiettivo è mostrare come organizzare una pipeline dinamica di data processing con Spark, mantenendo log delle operazioni e distinguendo i dati validi da quelli errati.
 Si è implementato poi, tramite **OracleDB**, un metodo per inserire la tabelle filtrate nelle tabelle 02 del motorino.
-L’intero processo è automatizzato tramite uno **script Bash**, che gestisce:
+L’intero processo è automatizzato tramite uno **script Bash** (presente anche la versione per Windows scritta con **PowerShell**), che gestisce:
 - il controllo dei parametri e dei file CSV/JSON,
 - la verifica della chiave di configurazione JSON,
 - l’esecuzione del processo Python con i parametri corretti,
 - il logging di tutte le operazioni, con messaggi colorati per evidenziare lo stato delle operazioni.
+
+Consiglio di usare lo Script.sh
 
 ---
 
@@ -80,39 +82,62 @@ pip install pyspark
 
 ## Istruzioni per l'esecuzione
 
-1. Posizionare i file CSV di input nella cartella `data/`. Il formato deve rispettare le seguenti regole:
-	- Separatore dei campi coerente (es. `,`), uniforme per ciascun file.
-	- La prima riga deve contenere i nomi delle colonne (header).
+1. **Preparazione dei dati**  
+   - Inserire i file CSV di input nella cartella `data/`.  
+   - Il file deve rispettare le seguenti regole:  
+     - Separatore dei campi coerente (es. `,`).  
+     - La prima riga deve contenere i nomi delle colonne (header).  
+     - Il nome del file deve coincidere con l’ID del periodo (`ID_PER`), ad esempio:  
+       ```
+       202501_presenze.csv
+       ```
 
-2. Configurazione dei flussi tramite JSON:  
-	- Modificare o aggiungere nuove configurazioni nel file `config_flussi.json`.
-	- Specificare per ciascuna colonna le regole di validazione da applicare, richiamando i metodi disponibili nella classe `Operazioni` (ad esempio `positive_number`, `string_no_numbers`, `date`, `email`, `string_length`).
-	- Ogni colonna può avere una o più regole di validazione, applicate sequenzialmente durante il processo di pulizia.
+2. **Configurazione dei flussi (JSON)**  
+   - Modificare/aggiungere i flussi in `config/config_flussi.json`.  
+   - Per ogni colonna si specificano le regole di validazione, richiamando i metodi disponibili nella classe `Operazioni`  
+     (es. `positive_number`, `string_no_numbers`, `date`, `email`, `string_length`).  
+   - Più regole possono essere applicate sequenzialmente sulla stessa colonna.
 
-3. Installare le dipendenze del progetto:
-```bash
-pip install -r requirements.txt
-```
+3. **Installazione dipendenze**  
+   Da eseguire una sola volta:  
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-3. Eseguire gli script Python dalla cartella `src/`.  
-```bash
-python src/data_processor.py
-```
+4. **Esecuzione tramite script automatizzato**  
+   Dalla cartella `scripts/`, avviare lo script passando i parametri richiesti:  
 
-5. Configurare correttamente i percorsi dei file nel codice:
-	- `path_config_json`: percorso del file JSON di configurazione dei flussi  
-	- `path_log_gestore`: percorso del log principale del gestore dei flussi  
-	- `path_log`: percorso del log dettagliato per il singolo flusso  
-	- `path_flusso`: percorso del file CSV da elaborare  
-	- `flusso_corrente` o `chiave_json`: identificatore del flusso da processare
+   - **Esempio (Git Bash / Linux):**
+     ```bash
+     ./Script.sh --flusso 202501_presenze --chiave_json presenze --tabella GRP02_PRS
+     ```
 
-6. Creare un oggetto tramite la classe `GestoreFlussoDipendenti`. Richiamare il metodo `processa_flusso`, che restituisce tre DataFrame:  
-	- `df_grezzo`: dati letti dal file originale  
-	- `tab_ok`: dati validi  
-	- `tab_scarti`: dati non validi  
+   - **Esempio (PowerShell):**
+     ```powershell
+     .\Script.ps1 -flusso 202501_presenze -chiave_json presenze -tabella GRP02_PRS
+     ```
 
-8. I log generati durante l’esecuzione vengono salvati nella cartella `logs/`.  
-9. Ogni oggetto `GestoreFlussoDipendenti` genera automaticamente una colonna `IDRUN` incrementale per identificare i flussi elaborati.
+   **Parametri disponibili:**  
+   - `--flusso` / `-flusso`: nome del file CSV (senza estensione) da elaborare.  
+   - `--chiave_json` / `-chiave_json`: chiave corrispondente nel file `config_flussi.json`.  
+   - `--tabella` / `-tabella`: tabella Oracle di destinazione (es. `GRP02_PRS`, `GRP02_ANA`).  
+   - `--user` / `-user`: username per connessione al database Oracle.  
+   - `--password` / `-password`: password per connessione al database Oracle.  
+   - `--dsn` / `-dsn`: Data Source Name per la connessione (es. `localhost:1521/orcl`).  
+
+   ⚠️ **Nota:** se non vengono specificati, i parametri `user`, `password` e `dsn` assumono i valori di default utilizzati dal sistema *motorino*:  
+   - `user = VGLSA`  
+   - `password = VGLSA`  
+   - `dsn = localhost:1521/orcl`  
+
+5. **Log e monitoraggio**  
+   - I log di esecuzione vengono salvati automaticamente in `logs/`.  
+   - Sono previsti due livelli di log:  
+     - **tlog_gestore.log** → log generale dei flussi. Implementati dalle classi.  
+     - **script_log_*.log** → log specifico di ogni esecuzione. Creato dinamicamente in base alla data.
+
+6. **Identificazione dei flussi**  
+   Ogni elaborazione aggiunge automaticamente un campo `IDRUN` incrementale per tracciare i singoli processi eseguiti.
 
 ## Note
 

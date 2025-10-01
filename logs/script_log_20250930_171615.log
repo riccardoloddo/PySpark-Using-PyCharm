@@ -1,0 +1,3 @@
+[2025/09/30 17:16:16:026 - Script.sh - INFO] Script avviato.
+[2025/09/30 17:16:16:207 - Script.sh - INFO] File CSV (../data/202501_presenze.csv) e JSON (../config/config_flussi.json) trovati.
+[2025/09/30 17:16:16:314 - Script.sh - ERROR] Chiave JSON 'presenze' non trovata.

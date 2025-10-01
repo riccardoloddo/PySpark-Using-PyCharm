@@ -1,0 +1,5 @@
+[2025/10/01 14:09:27:725 - Script.sh - INFO] Script avviato.
+[2025/10/01 14:09:27:844 - Script.sh - INFO] File CSV (../data/202501_presenze.csv) e JSON (../config/config_flussi.json) trovati.
+[2025/10/01 14:09:27:909 - Script.sh - INFO] Avvio processo
+Python con comando: C:/Users/lddrc/_Personale/Lavoro/Advancia_mio/Python/Progetto_flussi/.venv/Scripts/python.exe ../scr/processa_flusso.py --user VGLSA --password VGLSA --dsn localhost:1521/orcl --flusso 202501_presenze --chiave_json presenze --tabella GRP02_PRS
+[2025/10/01 14:10:07:233 - Script.sh - INFO] Script completato con successo.

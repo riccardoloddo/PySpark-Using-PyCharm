@@ -11,9 +11,6 @@ __pycache__/
 *.iml
 *.iws
 
-# Log
-*.log
-
 # OS
 .DS_Store
 Thumbs.db
