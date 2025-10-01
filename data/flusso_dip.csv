@@ -1,0 +1,11 @@
+ID_CLIENTE,NOME,COGNOME,EMAIL,SPESA_TOTALE,DATA_ISCRIZIONE,STATO
+1,Anna,Rossi,anna.rossi@example.com,1200.50,2020-05-15,ATTIVO
+2,Luca,Bianchi,luca.bianchi@example,abc,2019-13-40,ATTIVO
+3,Claudia,Verdi,,890.00,2018-07-22,DISATTIVO
+4,Paolo,Neri,paolo.neri@example.com,450.30,2021-02-30,ATTIVO
+5,Giorgio,Ferri,giorgio.ferri@example.com,1000,2017-11-05,
+6,Martina,Lanza,martina.lanza@example.com,-300,2016-08-12,ATTIVO
+7,Filippo,Baldi,filippo.baldi@example.com,NaN,2015-03-01,ATTIVO
+8,Daniele,Moroni,daniele.moroni@example.com,850.75,201x-06-18,DISATTIVO
+9,Simone,Sportiello,simone.sportiello@example.com,0,2019-12-12,ATTIVO
+10,Concetta,,concetta.lanza@example.com,500,2018-09-09,ATTIVO

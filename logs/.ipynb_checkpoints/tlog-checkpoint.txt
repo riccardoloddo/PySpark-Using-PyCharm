@@ -1,0 +1,5 @@
+NumExpr defaulting to 4 threads.
+IDRUN=1, Operazione=Costruttore, Stato=OK, File=../data/flusso.csv, Data=2025-09-26 09:59:27
+IDRUN=1, Operazione=Show, Stato=OK, Righe=22, Data=2025-09-26 09:59:32
+IDRUN=2, Operazione=Costruttore, Stato=OK, File=../data/Flusso2.csv, Data=2025-09-26 09:59:56
+IDRUN=2, Operazione=Show, Stato=OK, Righe=22, Data=2025-09-26 09:59:57

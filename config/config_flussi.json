@@ -1,0 +1,79 @@
+{
+  "flusso": {
+    "columns": {
+	  "CF": {"type": "string_length", "length": 16},      
+      "NOME": {"type": "string_no_numbers"},
+	  "DN": {"type": "date", "format": "yyyy-MM-dd"},
+	  "SALARIO": {"type": "positive_number"}  
+    }
+  },
+  "flusso_dip": {
+    "columns": {
+      "SPESA_TOTALE": {"type": "positive_number"},
+      "DATA_ISCRIZIONE": {"type": "date", "format": "yyyy-MM-dd"},
+      "EMAIL": {"type": "email"},
+      "NOME": {"type": "string_no_numbers"},
+      "COGNOME": {"type": "string_no_numbers"}
+    }
+  },
+  "unitacr": {
+    "columns": {
+      "COD_UNT": {"type": "positive_number"},
+      "DESC_UNT": {"type": "string_length", "length": 3}
+    }
+  },
+    "presenze": {
+    "columns": {
+      "MATRICOLA": {"type": "positive_number"},
+      "CF": {"type": "string_length", "length": 16},
+	  "DATA_PRES": {"type": "date", "format": "yyyy-MM-dd"},
+	  "OREPRES": {"type": "positive_number"},
+	  "ORESTRAOR": {"type": "positive_number"},
+	  "OREPERMES": {"type": "positive_number"}
+    }
+  },
+    "ruoli": {
+    "columns": {
+      "COD_RUOLO": {"type": "positive_number"},
+      "DESC_RUOLO": {"type": "string", "skip_validation": true}
+    }
+  },
+  "anagrafica": {
+    "columns": {
+      "COD_DIP": {"type": "positive_number"},
+      "COD_UNT": {"type": "positive_number"},
+      "COD_RUOLO": {"type": "positive_number"},
+      "COGNOME": {"type": "string_no_numbers"},
+      "NOME": {"type": "string_no_numbers"},
+      "DT_INI_UNT": {"type": "date", "format": "yyyy-MM-dd"},
+      "TIPO_CTR": {"type": {"type": "string", "skip_validation": true},
+      "COD_CTR": {"type": "positive_number"},
+      "COD_LIV": {"type": "string", "skip_validation": true},
+      "DT_INI_LIV": {"type": "date", "format": "yyyy-MM-dd"},
+      "DT_INI_MNS": {"type": "date", "format": "yyyy-MM-dd"},
+      "MATRICOLA": {"type": "positive_number"},
+      "CF": {"type": "string_length", "length": 16},
+      "SESSO": {"type": "string", "skip_validation": true},
+      "DT_NASCITA": {"type": "date", "format": "yyyy-MM-dd"},
+      "TIPO_RAPP": {"type": "positive_number"},
+      "DT_INI_TIPO_CTR": {"type": "date", "format": "yyyy-MM-dd"},
+      "DT_FINE_TIPO_CTR": {"type": "date", "format": "yyyy-MM-dd"},
+      "DT_INI_RAPP": {"type": "date", "format": "yyyy-MM-dd"},
+      "DT_FINE_RAPP": {"type": "date", "format": "yyyy-MM-dd"},
+      "AMBITO": {"type": "string", "skip_validation": true},
+      "TIPO_ASS": {"type": "string", "skip_validation": true},
+      "DT_PROROGA_TERMINE": {"type": "date", "format": "yyyy-MM-dd"},
+      "DT_CTR_SOST_MAT": {"type": "date", "format": "yyyy-MM-dd"},
+      "QTA_PART_TIME": {"type": "string", "skip_validation": true},
+      "TITOLARE1": {"type": "string", "skip_validation": true},
+      "TITOLARE2": {"type": "string", "skip_validation": true},
+      "MOTIVO_PROMOZIONE": "string", "skip_validation": true},
+      "FASCICOLO_AGGIORNATO": {"type": "string", "skip_validation": true},
+      "TITOLO_STUDIO": {"type": "positive_number"},
+      "DESC_CTR": {"type": "string", "skip_validation": true},
+      "DESC_LIV": {"type": "string", "skip_validation": true}
+    }
+  }
+
+
+}

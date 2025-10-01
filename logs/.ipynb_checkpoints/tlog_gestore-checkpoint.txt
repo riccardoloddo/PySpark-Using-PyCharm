@@ -1,0 +1,2 @@
+2025-09-26 10:48:35.865073 - IDRUN=1 - Tabelle create: df_grezzo=22, tab_ok=7, tab_scarti=15
+2025-09-26 10:48:43.907232 - IDRUN=1 - Operazione: filtra_salario > 3000, Righe risultanti: 7

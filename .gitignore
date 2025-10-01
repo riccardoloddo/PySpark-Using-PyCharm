@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.env
+*.venv
+
+# PyCharm
+.idea/
+*.iml
+*.iws
+
+# Log
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
