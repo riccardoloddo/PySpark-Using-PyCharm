@@ -6,7 +6,7 @@ from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, when, length, lit, current_timestamp, to_date
 
 from operazioni import Operazioni  # importa la tua classe Operazioni
-
+from oracle_logger import OracleLogHandler
 
 class TabellaDipendenti:
 
@@ -16,8 +16,10 @@ class TabellaDipendenti:
             SparkSession.builder
             .master("local[1]")
             .appName("FlussoGenerico")
+            .config("spark.ui.enabled", "false")
             .getOrCreate()
         )
+        self.spark.sparkContext.setLogLevel("ERROR")
 
         self.idper = idper
         self.path_log = path_log

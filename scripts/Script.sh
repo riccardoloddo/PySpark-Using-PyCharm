@@ -16,8 +16,8 @@ while [[ $# -gt 0 ]]; do
 done
 
 # Parametri di default se mancanti
-USER="${USER:-VGLSA}"
-PASSWORD="${PASSWORD:-VGLSA}"
+USER="${USER:-STAGE_SPARK}"
+PASSWORD="${PASSWORD:-STAGE_SPARK}"
 DSN="${DSN:-localhost:1521/orcl}"
 
 # -----------------------------
@@ -36,7 +36,7 @@ function write_log() {
     local TYPE="${2:-INFO}"
     local TIMESTAMP
     TIMESTAMP=$(date "+%Y/%m/%d %H:%M:%S:%3N")
-    echo "[$TIMESTAMP - ${0##*/} - $TYPE] $MESSAGE" | tee -a "$PATH_LOG"
+    echo "[$TIMESTAMP - ${0##*/} - $TYPE] $MESSAGE" >> "$PATH_LOG"
 }
 
 # -----------------------------
@@ -59,15 +59,26 @@ fi
 # -----------------------------
 # Controllo esistenza file CSV e JSON
 # -----------------------------
-for f in "$PATH_CSV" "$PATH_CONFIG_JSON"; do
-    if [[ ! -f "$f" ]]; then
-        echo -e "\033[1;31mFile mancante: $f\033[0m"
-        write_log "File mancante: $f" "ERROR"
+if [[ "$FLUSSO" == "202501_unita_completa" ]]; then
+    echo -e "\033[1;34mFlusso combinato rilevato: salto controllo file CSV singolo.\033[0m"
+    write_log "Flusso combinato 'unita_completa': salto controllo CSV." "INFO"
+    # Controllo solo il JSON
+    if [[ ! -f "$PATH_CONFIG_JSON" ]]; then
+        echo -e "\033[1;31mFile JSON mancante: $PATH_CONFIG_JSON\033[0m"
+        write_log "File JSON mancante: $PATH_CONFIG_JSON" "ERROR"
         exit 1
     fi
-done
-echo -e "\033[1;34mFile CSV e JSON trovati correttamente.\033[0m"
-write_log "File CSV ($PATH_CSV) e JSON ($PATH_CONFIG_JSON) trovati." "INFO"
+else
+    for f in "$PATH_CSV" "$PATH_CONFIG_JSON"; do
+        if [[ ! -f "$f" ]]; then
+            echo -e "\033[1;31mFile mancante: $f\033[0m"
+            write_log "File mancante: $f" "ERROR"
+            exit 1
+        fi
+    done
+    echo -e "\033[1;34mFile CSV e JSON trovati correttamente.\033[0m"
+    write_log "File CSV ($PATH_CSV) e JSON ($PATH_CONFIG_JSON) trovati." "INFO"
+fi
 
 # -----------------------------
 # Esecuzione script Python
@@ -76,6 +87,11 @@ PYTHON_EXE="C:/Users/lddrc/_Personale/Lavoro/Advancia_mio/Python/Progetto_flussi
 PYTHON_SCRIPT="${PATH_BASE}scr/processa_flusso.py"
 
 CMD="$PYTHON_EXE $PYTHON_SCRIPT --user $USER --password $PASSWORD --dsn $DSN --flusso $FLUSSO --chiave_json $CHIAVE_JSON --tabella $TABELLA"
+
+# Se è stato settato il mese, aggiungilo al comando
+if [ -n "$MESE" ]; then
+    CMD="$CMD --mese $MESE"
+fi
 
 echo -e "\033[1;36mAvvio processo Python...\033[0m"
 write_log "Avvio processo

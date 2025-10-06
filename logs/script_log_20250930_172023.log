@@ -1,5 +1,0 @@
-[2025/09/30 17:20:23:330 - Script.sh - INFO] Script avviato.
-[2025/09/30 17:20:23:420 - Script.sh - INFO] File CSV (../data/202501_presenze.csv) e JSON (../config/config_flussi.json) trovati.
-[2025/09/30 17:20:23:500 - Script.sh - INFO] Avvio processo
-Python con comando: /c/Users/lddrc/Anaconda3/python.exe ../scr/processa_flusso.py --user VGLSA --password VGLSA --dsn localhost:1521/orcl --flusso 202501_presenze --chiave_json presenze --csv ../data/202501_presenze.csv --json ../config/config_flussi.json --log ../logs/script_log_20250930_172023.log
-[2025/09/30 17:20:24:711 - Script.sh - INFO] Script completato con successo.
