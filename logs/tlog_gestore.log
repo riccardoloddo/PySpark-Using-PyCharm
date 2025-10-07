@@ -1,3 +1,3 @@
-ID_PER=202501 - Tabelle create: df_grezzo=30, tab_ok=29, tab_scarti=1, Data=2025-10-06 16:51:48.241162
-ID_PER=202501 - Caricamento completato su Oracle tabella GRP02_PRS
-ID_PER=202501 - Caricamento completato su Oracle tabella GRP02_PRS_SCARTI
+ID_PER=202501 - Tabelle create: df_grezzo=9, tab_ok=6, tab_scarti=3, Data=2025-10-07 11:56:36.982147
+ID_PER=202501 - Caricamento completato su Oracle tabella GRP02_ANA
+ID_PER=202501 - Caricamento completato su Oracle tabella GRP02_ANA_SCARTI

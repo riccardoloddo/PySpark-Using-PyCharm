@@ -84,7 +84,7 @@ fi
 # Esecuzione script Python
 # -----------------------------
 PYTHON_EXE="C:/Users/lddrc/_Personale/Lavoro/Advancia_mio/Python/Progetto_flussi/.venv/Scripts/python.exe"  # o il tuo python path
-PYTHON_SCRIPT="${PATH_BASE}scr/processa_flusso.py"
+PYTHON_SCRIPT="${PATH_BASE}Staging_Area/processa_flusso.py"
 
 CMD="$PYTHON_EXE $PYTHON_SCRIPT --user $USER --password $PASSWORD --dsn $DSN --flusso $FLUSSO --chiave_json $CHIAVE_JSON --tabella $TABELLA"
 

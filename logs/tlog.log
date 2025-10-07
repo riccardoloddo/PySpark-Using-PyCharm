@@ -1,13 +1,27 @@
-ID_PER=202501, Operazione=Costruttore, Stato=OK, File=../data/202501_presenze.csv, Data=2025-10-06 16:51:43
-ID_PER=202501, Operazione=givemedataframe, Stato=OK, Data=2025-10-06 16:51:43
-ID_PER=202501, Operazione=pulisci, Filtro=MATRICOLA, Righe OK=30, Data=2025-10-06 16:51:44
-ID_PER=202501, Operazione=pulisci, Filtro=CF, Righe OK=29, Data=2025-10-06 16:51:45
-ID_PER=202501, Operazione=pulisci, Filtro=DATA_PRES, Righe OK=30, Data=2025-10-06 16:51:46
-ID_PER=202501, Operazione=pulisci, Filtro=OREPRES, Righe OK=30, Data=2025-10-06 16:51:46
-ID_PER=202501, Operazione=pulisci, Filtro=ORESTRAOR, Righe OK=30, Data=2025-10-06 16:51:46
-ID_PER=202501, Operazione=pulisci, Filtro=OREPERMES, Righe OK=30, Data=2025-10-06 16:51:46
-ID_PER=202501 - Tabelle create: df_grezzo=30, tab_ok=29, tab_scarti=1, Data=2025-10-06 16:51:48.241162
-ID_PER=202501, Operazione=givemedataframe, Stato=OK, Data=2025-10-06 16:51:48
-ID_PER=202501 - Caricamento completato su Oracle tabella GRP02_PRS
-ID_PER=202501, Operazione=givemedataframe, Stato=OK, Data=2025-10-06 16:51:51
-ID_PER=202501 - Caricamento completato su Oracle tabella GRP02_PRS_SCARTI
+ID_PER=202501, Operazione=Costruttore, Stato=OK, File=../data/202501_anagrafica.csv, Data=2025-10-07 11:56:26
+ID_PER=202501, Operazione=givemedataframe, Stato=OK, Data=2025-10-07 11:56:26
+ID_PER=202501, Operazione=pulisci, Filtro=COD_DIP, Righe OK=9, Data=2025-10-07 11:56:28
+ID_PER=202501, Operazione=pulisci, Filtro=COD_UNT, Righe OK=9, Data=2025-10-07 11:56:28
+ID_PER=202501, Operazione=pulisci, Filtro=COD_RUOLO, Righe OK=8, Data=2025-10-07 11:56:28
+ID_PER=202501, Operazione=pulisci, Filtro=COGNOME, Righe OK=9, Data=2025-10-07 11:56:29
+ID_PER=202501, Operazione=pulisci, Filtro=NOME, Righe OK=9, Data=2025-10-07 11:56:29
+ID_PER=202501, Operazione=pulisci, Filtro=DT_INI_UNT, Righe OK=9, Data=2025-10-07 11:56:30
+ID_PER=202501, Operazione=pulisci, Filtro=COD_CTR, Righe OK=9, Data=2025-10-07 11:56:30
+ID_PER=202501, Operazione=pulisci, Filtro=DT_INI_LIV, Righe OK=9, Data=2025-10-07 11:56:30
+ID_PER=202501, Operazione=pulisci, Filtro=DT_INI_MNS, Righe OK=9, Data=2025-10-07 11:56:31
+ID_PER=202501, Operazione=pulisci, Filtro=MATRICOLA, Righe OK=8, Data=2025-10-07 11:56:31
+ID_PER=202501, Operazione=pulisci, Filtro=CF, Righe OK=9, Data=2025-10-07 11:56:31
+ID_PER=202501, Operazione=pulisci, Filtro=DT_NASCITA, Righe OK=9, Data=2025-10-07 11:56:32
+ID_PER=202501, Operazione=pulisci, Filtro=TIPO_RAPP, Righe OK=9, Data=2025-10-07 11:56:32
+ID_PER=202501, Operazione=pulisci, Filtro=DT_INI_TIPO_CTR, Righe OK=9, Data=2025-10-07 11:56:32
+ID_PER=202501, Operazione=pulisci, Filtro=DT_FINE_TIPO_CTR, Righe OK=9, Data=2025-10-07 11:56:32
+ID_PER=202501, Operazione=pulisci, Filtro=DT_INI_RAPP, Righe OK=9, Data=2025-10-07 11:56:33
+ID_PER=202501, Operazione=pulisci, Filtro=DT_FINE_RAPP, Righe OK=9, Data=2025-10-07 11:56:33
+ID_PER=202501, Operazione=pulisci, Filtro=DT_PROROGA_TERMINE, Righe OK=9, Data=2025-10-07 11:56:33
+ID_PER=202501, Operazione=pulisci, Filtro=DT_CTR_SOST_MAT, Righe OK=9, Data=2025-10-07 11:56:34
+ID_PER=202501, Operazione=pulisci, Filtro=TITOLO_STUDIO, Righe OK=8, Data=2025-10-07 11:56:34
+ID_PER=202501 - Tabelle create: df_grezzo=9, tab_ok=6, tab_scarti=3, Data=2025-10-07 11:56:36.982147
+ID_PER=202501, Operazione=givemedataframe, Stato=OK, Data=2025-10-07 11:56:36
+ID_PER=202501 - Caricamento completato su Oracle tabella GRP02_ANA
+ID_PER=202501, Operazione=givemedataframe, Stato=OK, Data=2025-10-07 11:56:41
+ID_PER=202501 - Caricamento completato su Oracle tabella GRP02_ANA_SCARTI
